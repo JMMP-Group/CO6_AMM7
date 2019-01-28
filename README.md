@@ -10,7 +10,7 @@
 * Riverine input:
 
 ### Authors
-* Definitive list to be determined *
+*Definitive list to be determined*
 
 ### DOI
-* Add doi here. There could be several as CO6 evolves and will therefore be associated with a specific git hash * 
+*Add doi here. There could be several as CO6 evolves and will therefore be associated with a specific git hash* 
