@@ -7,4 +7,4 @@
 ### Overview
 * Surface forcing:
 * Lateral boundary conditions:
-* Rverine input:
+* Riverine input:
