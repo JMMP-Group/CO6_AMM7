@@ -1,0 +1,56 @@
+        !----------------------------------------------------------------------------------------------------
+        !Compute sign for velocities:
+        !
+        !convention:
+        !   non horizontal section: direction + is toward left hand of section
+        !       horizontal section: direction + is toward north of section
+        !
+        !
+        !       slopeSection < 0     slopeSection > 0       slopeSection=inf            slopeSection=0
+        !       ----------------      -----------------     ---------------             --------------
+        !
+        !   isgnv=1         direction +      
+        !  ______         _____             ______                                                   
+        !        |           //|            |                  |                         direction +   
+        !        | isgnu=1  // |            |isgnu=1           |isgnu=1                     /|\
+        !        |_______  //         ______|    \\            | ---\                        |
+        !               |             | isgnv=-1  \\ |         | ---/ direction +       ____________
+        !               |             |          __\\|         |                    
+        !               |             |     direction +        |                      isgnv=1                                 
+        !                                                      
+        !----------------------------------------------------------------------------------------------------
+        isgnu = 1
+        IF( sec%slopeSection .GT. 0 ) THEN  ; isgnv = -1 
+        ELSE                                ; isgnv =  1
+        ENDIF
+        IF( sec%slopeSection .GE. 9999. )     isgnv =  1
+
+           !-------------------------------------------------------------------------------------------
+           ! Select the appropriate coordinate for computing the velocity of the segment
+           !
+           !                      CASE(0)                                    Case (2)
+           !                      -------                                    --------
+           !  listPoint(jseg)                 listPoint(jseg+1)       listPoint(jseg)  F(i,j)      
+           !      F(i,j)----------V(i+1,j)-------F(i+1,j)                               |
+           !                                                                            |
+           !                                                                            |
+           !                                                                            |
+           !                      Case (3)                                            U(i,j)
+           !                      --------                                              |
+           !                                                                            |
+           !  listPoint(jseg+1) F(i,j+1)                                                |
+           !                        |                                                   |
+           !                        |                                                   |
+           !                        |                                 listPoint(jseg+1) F(i,j-1)
+           !                        |                                            
+           !                        |                                            
+           !                     U(i,j+1)                                            
+           !                        |                                       Case(1)     
+           !                        |                                       ------      
+           !                        |                                            
+           !                        |                 listPoint(jseg+1)             listPoint(jseg)                           
+           !                        |                 F(i-1,j)-----------V(i,j) -------f(jseg)                           
+           ! listPoint(jseg)     F(i,j)
+           ! 
+           !-------------------------------------------------------------------------------------------
+
