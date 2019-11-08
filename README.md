@@ -2,7 +2,7 @@
 
 ## Coastal Ocean version 6 configuration (CO6) of the Atlantic Margin Model (7km) based on the [NEMO](https://www.nemo-ocean.eu) v3.6 Framework 
 
-*Developed jointly between the Met Office and the National Oceanography Centre.* 
+*Developed jointly between the [Met Office](https://www.metoffice.gov.uk) and the [National Oceanography Centre](http://www.noc.ac.uk), under the [Joint Marine Modelling Programme](http://www.jwcrp.org.uk/under/jmmp.asp)* 
 
 ### Overview
 * Surface forcing:
